@@ -3,8 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: mnist-service
-  name: mnist-service-v1
-  namespace: kubeflow
+  name: mnist-service
 spec:
   replicas: 1
   selector:
