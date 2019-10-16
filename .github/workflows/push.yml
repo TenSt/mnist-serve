@@ -33,6 +33,8 @@ jobs:
         kubeconfig: ${{ secrets.KUBE_CONFIG }}
     - name: sed
       run: |
+        SHA=${GITHUB_SHA:0:7}
+        APP=${GITHUB_REPOSITORY#*/}
         DOCKER_URL=${{ secrets.REGISTRY_URL }}/${{ secrets.REGISTRY_USERNAME }}/${APP}/${APP}:${SHA}
         sed -i "s,IMG,${DOCKER_URL},g" deploy.yaml
         cat ./deploy.yaml
