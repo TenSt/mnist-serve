@@ -35,6 +35,7 @@ jobs:
       run: |
         DOCKER_URL=${{ secrets.REGISTRY_URL }}/${{ secrets.REGISTRY_USERNAME }}/${APP}/${APP}:${SHA}
         sed -i "s,IMG,${DOCKER_URL},g" deploy.yaml
+        cat ./deploy.yaml
     - name: Deploy to K8S
       run: |
         kubectl apply -f deploy.yaml
