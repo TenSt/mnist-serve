@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: mnist-service
-      version: v1
   strategy:
     rollingUpdate:
       maxSurge: 1
