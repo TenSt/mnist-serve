@@ -27,7 +27,9 @@ spec:
         command:
         - /usr/bin/tensorflow_model_server
         image: IMG
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
+        imagePullSecrets:
+        - name: docker-registry-secret
         name: mnist-service
         ports:
         - containerPort: 9000
