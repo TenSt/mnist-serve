@@ -19,6 +19,8 @@ spec:
       labels:
         app: mnist-service
     spec:
+      imagePullSecrets:
+      - name: docker-registry-secret
       containers:
       - args:
         - --port=9000
@@ -28,8 +30,7 @@ spec:
         - /usr/bin/tensorflow_model_server
         image: IMG
         imagePullPolicy: Always
-        imagePullSecrets:
-        - name: docker-registry-secret
+        
         name: mnist-service
         ports:
         - containerPort: 9000
